@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MRParaMetrix">
+  <head>
+    <meta charset="utf-8">
+    <title>MR ParaMetrix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap_overrides.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">MR ParaMetrix</a>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+    <!-- Main container -->
+    <div class="container-fluid" ng-controller="MainCtrl">
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="row-fluid">
+            <form novalidate class="simple-form">
+
+              <!-- Params select -->
+<!--               <div class="alert alert-info span3">
+                <pre>Parameter: {{ qParams.selectedParameter }}</pre>
+                <select name="Parameter" ng-model="qParams.selectedParameter" ng-options="s as s for s in couchdb.parameterlist"></select>
+              </div> -->
+
+              <!-- Scaner select -->
+							<div class="alert alert-info span4">
+								<pre>Scanner: {{ qParams.selectedScanner.key }}</pre>
+								<select name="Scanner" ng-model="qParams.selectedScanner" ng-options="s.key for s in couchdb.scannerlist.rows">
+									<option value="">-- Choose scanner --</option>
+								</select>
+							</div>
+
+              <!-- Study select -->
+							<div class="alert alert-info span4">
+								<pre>Study: {{ qParams.selectedStudy[1] }}</pre>
+								<select name="Studies" ng-model="qParams.selectedStudy" ng-options="s.key as s.key[1] for s in couchdb.studylist.rows">
+									<option value="">-- Choose study --</option>
+								</select>
+							</div>
+
+              <!-- Series select -->
+							<div class="alert alert-info span4">
+								<pre>Series: {{ qParams.selectedSeries[2] }}</pre>
+								<select name="Series"	ng-model="qParams.selectedSeries" ng-options="s.key as s.key[2] for s in couchdb.serieslist.rows">
+									<option value="">-- Choose series --</option>
+								</select>
+							</div>
+
+						</form>
+          </div><!--/row-->
+          <h4>Parameter results</h4>
+          <!-- Main chart script-->
+          <ul class="thumbnails">
+            <li class="span4" ng-repeat="parameter in couchdb.parameterlist">
+              <div class="thumbnail">
+                <div google-chart chart="charts[parameter]" style="{{charts[parameter].cssStyle}}"/></div>
+              </div>
+            </li>
+          </ul>
+
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; IATM 2013</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/angular-cornercouch.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="js/ng-google-chart.js"></script>
+		<script type="text/javascript" src="js/couchctrl.js"></script>
+
+  </body>
+</html>

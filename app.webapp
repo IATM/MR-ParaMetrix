@@ -1,0 +1,26 @@
+{
+  "name": "MR-ParaMetrix",
+  "version" : "0.0.4",
+  "description": "MR Protocol exploration tool",
+  "long_description" : "CouchDB App to explore Large datasets of MR studies in order to gain insights on specific parameters, their usage and distribution",
+  "launch_path": "/",
+  "url": "https://github.com/IATM/MR-ParaMetrix",
+  "categories": ["healthcare"],
+  "icons": {
+         "16": "img/promo/icon_16.png",
+         "48": "img/promo/icon_48.png",
+         "96": "img/promo/icon_96.png",
+         "128": "img/promo/icon_128.png"
+  },
+  "promo_images": {
+         "small": "img/promo/promo_small.png"
+  },
+  "screenshots": [
+     "img/promo/screenshot1.png"
+  ],
+  "developer": {
+    "name": "Simon Rascovsky",
+    "url": "http://github/simonmd"
+  },
+  "default_locale": "en"
+}
