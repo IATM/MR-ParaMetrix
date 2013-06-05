@@ -8,7 +8,7 @@ var MRParaMetrix = angular.module('MRParaMetrix', ['CornerCouch','googlechart.di
 // ******************************** CouchDB service (factory) ******************************** 
 MRParaMetrix.factory('CouchDBService', function (cornercouch) { 
   var server = cornercouch();
-  var mrdb = server.getDB('mrparametrix');
+  var mrdb = server.getDB('mrparametrix_small');
   var CouchDBService = {
 
     // Get available parameter views in couchdb database
